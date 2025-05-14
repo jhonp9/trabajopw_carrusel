@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #00ff88;
+    --secondary-color: #007944;
+    --dark-color: #121212;
+    --light-color: #1e1e1e;
+}
+        
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+        
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.login-container {
+    background-color: var(--light-color);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid var(--secondary-color);
+}
+
+.aroba {
+    background-color: #2a2a2a;
+    border: 1px solid var(--secondary-color);
+    color: white;
+    padding: 12px 15px;
+    height: 50px;
+}
+.form-control {
+    background-color: #2a2a2a;
+    border: 1px solid var(--secondary-color);
+    color: white;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+}
+
+.form-control:focus {
+    background-color: #2a2a2a;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 136, 0.25);
+    color: white;
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    padding: 12px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #00cc6a;
+    color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+.form-label {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.links a:hover {
+    
+    color: #00cc6a;
+    text-decoration: underline;
+}
+
+.nada{
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.divider {
+    border-top: 1px solid var(--secondary-color);
+    position: relative;
+    margin: 20px 0;
+}
+
+.divider::after {
+    content: "o";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--light-color);
+    padding: 0 10px;
+    color: var(--primary-color);
+}
+
+.social-btn {
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.social-btn:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(0, 255, 136, 0.1);
+}
+
+/* Estilos para el carrusel con tamaño fijo */
+.fixed-size-carousel {
+    width: 800px; /* Ancho fijo */
+    height: 350px; /* Alto fijo */
+    margin: 0 auto; /* Centrar el carrusel */
+    overflow: hidden; /* Oculta partes de la imagen que sobresalgan */
+    background-color: #000; /* Fondo negro para áreas no cubiertas por la imagen */
+}
+
+/* Contenedor de la imagen para centrarla */
+.carousel-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* La imagen mantiene su tamaño original */
+.carousel-image-container img {
+    max-width: none; /* Anula el max-width de Bootstrap */
+    max-height: none; /* Anula el max-height de Bootstrap */
+    object-fit: contain; /* Muestra toda la imagen sin recortar */
+}

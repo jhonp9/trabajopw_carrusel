@@ -10,6 +10,7 @@
     <!-- Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style-carrusel.css">
+    <script defer src="./carrito.js"></script>
 </head>
 <body>
     <!-- El navbar par añadir el logo y nombre de la pag -->
@@ -19,9 +20,67 @@
                 <img src="#" alt="Logo">
                 GameHub
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Casa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Plataforma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ofertas especiales</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <button class="btn btn-outline-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <button class="btn btn-link position-relative ms-3 cart-icon" id="cartButton">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </nav>
-    
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="mb-0">Shopping Cart</h3>
+                <button class="btn btn-close btn-close-white" id="closeCartBtn"></button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Los items del carrito se agregarán aquí dinámicamente -->
+                <div class="text-center py-5">
+                    <i class="fas fa-shopping-cart fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 pt-3 border-top">
+                <div class="d-flex justify-content-between mb-3">
+                    <h5>Total:</h5>
+                    <h5 id="cartTotal">$0.00</h5>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" id="checkoutBtn">Confirm Order</button>
+                    <button class="btn btn-outline-danger" id="clearCartBtn">Cancel Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container mt-0">
         <!-- Carrusel -->
         <div id="fixedSizeCarousel" class="carousel slide fixed-size-carousel" data-bs-ride="carousel">
@@ -63,35 +122,35 @@
             <div class="row g-4">
                 <!-- Fila 1 -->
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">  
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal" data-game-id="1">  
                         <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+1" alt="Game 1" class="game-img">
                         <h3 class="game-title">Game 1</h3>
                     </div>
                 </div>
                 
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModa2">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">
                         <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+2" alt="Game 2" class="game-img">
                         <h3 class="game-title">Game 2</h3>
                     </div>
                 </div>
                 
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModa3">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">
                         <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+3" alt="Game 3" class="game-img">
                         <h3 class="game-title">Game 3</h3>
                     </div>
                 </div>
                 
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModa4">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">
                         <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+4" alt="Game 4" class="game-img">
                         <h3 class="game-title">Game 4</h3>
                     </div>
                 </div>
                 
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="game-card">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">
                         <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+5" alt="Game 5" class="game-img">
                         <h3 class="game-title">Game 5</h3>
                     </div>
@@ -99,7 +158,7 @@
                 
                 <!-- Fila 2 -->
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="game-card">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">
                         <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+6" alt="Game 6" class="game-img">
                         <h3 class="game-title">Game 6</h3>
                     </div>
@@ -114,7 +173,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Nombre del juego</h2>
+                    <h2 class="modal-title" id="gameTitle">Nombre del juego</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -122,13 +181,13 @@
                     <div class="row mb-4">
                         <div class="col-md-8">
                             <h4>God Of War</h4>
-                            <p>La jugabilidad consiste en frecuentes escenarios de combate con personajes que dan puñetazos y patadas, o usan su hacha para cortar, 
+                            <p id="gameDescription">La jugabilidad consiste en frecuentes escenarios de combate con personajes que dan puñetazos y patadas, o usan su hacha para cortar, 
                                 apuñalar o empalar a los enemigos. Algunos enemigos más grandes se exponen a intensos remates que muestran a enemigos destrozados, 
                                 desmembrados o decapitados. Se utiliza lenguaje fuerte en los diálogos.</p>
                             <p><b>ESTE PRODUCTO PUEDE INCLUIR CONTENIDO NO APTO PARA TODAS LAS EDADES O PARA VERLO EN EL TRABAJO.</b></p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <div class="price-tag mb-3">$49.99</div>
+                            <div class="price-tag mb-3" id="gamePrice">$49.99</div>
                             <div class="rating mb-3">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -137,7 +196,9 @@
                                 <i class="far fa-star"></i>
                                 <span class="ms-2">4.8/5</span>
                             </div>
-                            <button class="btn btn-purchase">Comprar ahora</button>
+                            <button class="btn btn-purchase" id="addToCartBtn">
+                                <i class="fas fa-cart-plus me-2"></i>Comprar ahora
+                            </button>
                         </div>
                     </div>
                     

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style-carrusel.css">
 </head>
 <body>
     <!-- El navbar par añadir el logo y nombre de la pag -->
@@ -56,9 +56,392 @@
             </button>
         </div>
     </div>
-
-    <!-- El login -->
-    
+    <section class="game-carousel">
+        <div class="container">
+            <h2 class="section-title">Featured Games</h2>
+            
+            <div class="row g-4">
+                <!-- Fila 1 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModal">  
+                        <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+1" alt="Game 1" class="game-img">
+                        <h3 class="game-title">Game 1</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModa2">
+                        <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+2" alt="Game 2" class="game-img">
+                        <h3 class="game-title">Game 2</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModa3">
+                        <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+3" alt="Game 3" class="game-img">
+                        <h3 class="game-title">Game 3</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="game-card" data-bs-toggle="modal" data-bs-target="#gameModa4">
+                        <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+4" alt="Game 4" class="game-img">
+                        <h3 class="game-title">Game 4</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="game-card">
+                        <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+5" alt="Game 5" class="game-img">
+                        <h3 class="game-title">Game 5</h3>
+                    </div>
+                </div>
+                
+                <!-- Fila 2 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="game-card">
+                        <img src="https://via.placeholder.com/300x180/00ff88/000000?text=Game+6" alt="Game 6" class="game-img">
+                        <h3 class="game-title">Game 6</h3>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    <!-- Para que salga la ventana de descripciones 1 -->
+    <div class="modal fade game-modal" id="gameModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Nombre del juego</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sección de detalles -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <h4>God Of War</h4>
+                            <p>La jugabilidad consiste en frecuentes escenarios de combate con personajes que dan puñetazos y patadas, o usan su hacha para cortar, 
+                                apuñalar o empalar a los enemigos. Algunos enemigos más grandes se exponen a intensos remates que muestran a enemigos destrozados, 
+                                desmembrados o decapitados. Se utiliza lenguaje fuerte en los diálogos.</p>
+                            <p><b>ESTE PRODUCTO PUEDE INCLUIR CONTENIDO NO APTO PARA TODAS LAS EDADES O PARA VERLO EN EL TRABAJO.</b></p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="price-tag mb-3">$49.99</div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.8/5</span>
+                            </div>
+                            <button class="btn btn-purchase">Comprar ahora</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Trailer del juego -->
+                    <h4 class="mb-3">Trailer del Juego</h4>
+                    <div class="game-trailer mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Imágenes de gameplay -->
+                    <h4 class="mb-3">Imagenes del juego</h4>
+                    <div class="row gameplay-images">
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+1" alt="Gameplay 1">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+2" alt="Gameplay 2">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+3" alt="Gameplay 3">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+4" alt="Gameplay 4">
+                        </div>
+                    </div>
+                    
+                    <!-- Requisitos del sistema -->
+                    <h4 class="mt-4 mb-3">Requerimientos del sistema</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Minimo</h5>
+                            <ul>
+                                <li>OS: Windows 10</li>
+                                <li>Processor: Intel Core i5</li>
+                                <li>Memory: 8 GB RAM</li>
+                                <li>Graphics: NVIDIA GTX 970</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Recomendado</h5>
+                            <ul>
+                                <li>OS: Windows 11</li>
+                                <li>Processor: Intel Core i7</li>
+                                <li>Memory: 16 GB RAM</li>
+                                <li>Graphics: NVIDIA RTX 2060</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Para que salga la ventana de descripciones 2 -->
+    <div class="modal fade game-modal" id="gameModa2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Name of the Game</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sección de detalles -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <h4>Game Details</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>Escala efficitur et dolore magna aliquip ex ea commodo consequat.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="price-tag mb-3">$49.99</div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.2/5</span>
+                            </div>
+                            <button class="btn btn-purchase">Purchase Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Trailer del juego -->
+                    <h4 class="mb-3">Game Trailer Video</h4>
+                    <div class="game-trailer mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Imágenes de gameplay -->
+                    <h4 class="mb-3">Gameplay Images</h4>
+                    <div class="row gameplay-images">
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+1" alt="Gameplay 1">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+2" alt="Gameplay 2">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+3" alt="Gameplay 3">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+4" alt="Gameplay 4">
+                        </div>
+                    </div>
+                    
+                    <!-- Requisitos del sistema -->
+                    <h4 class="mt-4 mb-3">System Requirements</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Minimum</h5>
+                            <ul>
+                                <li>OS: Windows 10</li>
+                                <li>Processor: Intel Core i5</li>
+                                <li>Memory: 8 GB RAM</li>
+                                <li>Graphics: NVIDIA GTX 970</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Recommended</h5>
+                            <ul>
+                                <li>OS: Windows 11</li>
+                                <li>Processor: Intel Core i7</li>
+                                <li>Memory: 16 GB RAM</li>
+                                <li>Graphics: NVIDIA RTX 2060</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Para que salga la ventana de descripciones 3 -->
+    <div class="modal fade game-modal" id="gameModa3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Name of the Game</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sección de detalles -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <h4>Game Details</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>Escala efficitur et dolore magna aliquip ex ea commodo consequat.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="price-tag mb-3">$49.99</div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.2/5</span>
+                            </div>
+                            <button class="btn btn-purchase">Purchase Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Trailer del juego -->
+                    <h4 class="mb-3">Game Trailer Video</h4>
+                    <div class="game-trailer mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Imágenes de gameplay -->
+                    <h4 class="mb-3">Gameplay Images</h4>
+                    <div class="row gameplay-images">
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+1" alt="Gameplay 1">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+2" alt="Gameplay 2">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+3" alt="Gameplay 3">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+4" alt="Gameplay 4">
+                        </div>
+                    </div>
+                    
+                    <!-- Requisitos del sistema -->
+                    <h4 class="mt-4 mb-3">System Requirements</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Minimum</h5>
+                            <ul>
+                                <li>OS: Windows 10</li>
+                                <li>Processor: Intel Core i5</li>
+                                <li>Memory: 8 GB RAM</li>
+                                <li>Graphics: NVIDIA GTX 970</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Recommended</h5>
+                            <ul>
+                                <li>OS: Windows 11</li>
+                                <li>Processor: Intel Core i7</li>
+                                <li>Memory: 16 GB RAM</li>
+                                <li>Graphics: NVIDIA RTX 2060</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Para que salga la ventana de descripciones 4 -->
+    <div class="modal fade game-modal" id="gameModa4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Name of the Game</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sección de detalles -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <h4>Game Details</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>Escala efficitur et dolore magna aliquip ex ea commodo consequat.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="price-tag mb-3">$49.99</div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-2">4.2/5</span>
+                            </div>
+                            <button class="btn btn-purchase">Purchase Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Trailer del juego -->
+                    <h4 class="mb-3">Game Trailer Video</h4>
+                    <div class="game-trailer mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Imágenes de gameplay -->
+                    <h4 class="mb-3">Gameplay Images</h4>
+                    <div class="row gameplay-images">
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+1" alt="Gameplay 1">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+2" alt="Gameplay 2">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+3" alt="Gameplay 3">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="https://via.placeholder.com/300x200/333333/00ff88?text=Gameplay+4" alt="Gameplay 4">
+                        </div>
+                    </div>
+                    
+                    <!-- Requisitos del sistema -->
+                    <h4 class="mt-4 mb-3">System Requirements</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Minimum</h5>
+                            <ul>
+                                <li>OS: Windows 10</li>
+                                <li>Processor: Intel Core i5</li>
+                                <li>Memory: 8 GB RAM</li>
+                                <li>Graphics: NVIDIA GTX 970</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Recommended</h5>
+                            <ul>
+                                <li>OS: Windows 11</li>
+                                <li>Processor: Intel Core i7</li>
+                                <li>Memory: 16 GB RAM</li>
+                                <li>Graphics: NVIDIA RTX 2060</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Por siaca -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

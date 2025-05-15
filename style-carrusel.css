@@ -27,59 +27,6 @@ body {
     margin-right: 10px;
 }
 
-.login-container {
-    background-color: var(--light-color);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
-    padding: 30px;
-    max-width: 500px;
-    margin: auto;
-    border: 1px solid var(--secondary-color);
-}
-
-.aroba {
-    background-color: #2a2a2a;
-    border: 1px solid var(--secondary-color);
-    color: white;
-    padding: 12px 15px;
-    height: 50px;
-}
-.form-control {
-    background-color: #2a2a2a;
-    border: 1px solid var(--secondary-color);
-    color: white;
-    padding: 12px 15px;
-    margin-bottom: 20px;
-}
-
-.form-control:focus {
-    background-color: #2a2a2a;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(0, 255, 136, 0.25);
-    color: white;
-}
-
-.btn-login {
-    background-color: var(--primary-color);
-    border: none;
-    color: var(--dark-color);
-    font-weight: 600;
-    padding: 12px;
-    width: 100%;
-    transition: all 0.3s;
-}
-
-.btn-login:hover {
-    background-color: #00cc6a;
-    color: var(--dark-color);
-    transform: translateY(-2px);
-}
-
-.form-label {
-    color: var(--primary-color);
-    font-weight: 500;
-}
-
 .links a {
     color: var(--primary-color);
     text-decoration: none;
@@ -90,11 +37,6 @@ body {
     
     color: #00cc6a;
     text-decoration: underline;
-}
-
-.nada{
-    color: var(--dark-color);
-    text-decoration: none;
 }
 
 .divider {
@@ -113,23 +55,6 @@ body {
     padding: 0 10px;
     color: var(--primary-color);
 }
-
-.social-btn {
-    border: 1px solid var(--secondary-color);
-    color: var(--primary-color);
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-    transition: all 0.3s;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.social-btn:hover {
-    border-color: var(--primary-color);
-    background-color: rgba(0, 255, 136, 0.1);
-}
-
 /* Estilos para el carrusel con tamaño fijo */
 .fixed-size-carousel {
     width: 800px; /* Ancho fijo */
@@ -153,4 +78,112 @@ body {
     max-width: none; /* Anula el max-width de Bootstrap */
     max-height: none; /* Anula el max-height de Bootstrap */
     object-fit: contain; /* Muestra toda la imagen sin recortar */
+}
+.game-carousel {
+    background-color: var(--dark-color);
+    padding: 40px 0;
+    color: white;
+}
+
+.game-card {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 2px solid #333;
+    height: 100%;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: #00ff88;
+}
+
+.game-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.game-title {
+    font-size: 1.2rem;
+    padding: 15px;
+    margin: 0;
+    color: #00ff88;
+}
+
+.section-title {
+    color: #00ff88;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #00ff88;
+    margin: 10px auto;
+}
+ .game-modal .modal-content {
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid #00ff88;
+}
+
+.game-modal .modal-header {
+    border-bottom: 1px solid #333;
+}
+
+.game-modal .modal-title {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.game-trailer {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+.gameplay-images img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.rating {
+    color: #ffcc00;
+    font-size: 1.5rem;
+}
+
+.price-tag {
+    background-color: #00ff88;
+    color: #121212;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-purchase {
+    background-color: #00ff88;
+    color: #121212;
+    font-weight: bold;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.btn-purchase:hover {
+    background-color: #00cc6a;
+    transform: scale(1.05);
 }

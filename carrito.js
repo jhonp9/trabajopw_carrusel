@@ -1,51 +1,81 @@
-// Datos de los juegos (simulados)
+// Datos de los juegos
 const gamesData = {
-    1: { title: "", price: 59.99, description: "", image: "" },
-    2: { title: "", price: 49.99, description: "", image: "" },
-    3: { title: "", price: 39.99, description: "", image: "" },
-    4: { title: "", price: 29.99, description: "", image: "" },
-    5: { title: "", price: 19.99, description: "", image: "" },
-    6: { title: "", price: 69.99, description: "", image: "" }
+    1: { 
+        title: "Game 1", 
+        price: 59.99, 
+        description: "Descripción del Game 1", 
+        image: "https://via.placeholder.com/300x180/00ff88/000000?text=Game+1" 
+    },
+    2: { 
+        title: "Game 2", 
+        price: 49.99, 
+        description: "Descripción del Game 2", 
+        image: "https://via.placeholder.com/300x180/00ff88/000000?text=Game+2" 
+    },
+    3: { 
+        title: "Game 3", 
+        price: 39.99, 
+        description: "Descripción del Game 3", 
+        image: "https://via.placeholder.com/300x180/00ff88/000000?text=Game+3" 
+    }
 };
+
 // Variables del carrito
 let cart = [];
 let currentGameId = null;
-const cartSidebar = document.getElementById('cartSidebar');
-const cartOverlay = document.getElementById('cartOverlay');
-const cartButton = document.getElementById('cartButton');
-const closeCartBtn = document.getElementById('closeCartBtn');
-const cartItems = document.getElementById('cartItems');
-const cartTotal = document.getElementById('cartTotal');
-const cartCount = document.getElementById('cartCount');
-const clearCartBtn = document.getElementById('clearCartBtn');
-const checkoutBtn = document.getElementById('checkoutBtn');
-const addToCartBtn = document.getElementById('addToCartBtn');
-const gameModal = document.getElementById('gameModal');
-const gameTitle = document.getElementById('gameTitle');
-const gameDescription = document.getElementById('gameDescription');
-const gamePrice = document.getElementById('gamePrice');
 
-// Event listeners
-cartButton.addEventListener('click', toggleCart);
-closeCartBtn.addEventListener('click', toggleCart);
-cartOverlay.addEventListener('click', toggleCart);
-clearCartBtn.addEventListener('click', clearCart);
-checkoutBtn.addEventListener('click', checkout);
-addToCartBtn.addEventListener('click', addToCart);
+// Elementos del DOM
+const elements = {
+    cartSidebar: document.getElementById('cartSidebar'),
+    cartOverlay: document.getElementById('cartOverlay'),
+    cartButton: document.getElementById('cartButton'),
+    closeCartBtn: document.getElementById('closeCartBtn'),
+    cartItems: document.getElementById('cartItems'),
+    cartTotal: document.getElementById('cartTotal'),
+    cartCount: document.getElementById('cartCount'),
+    clearCartBtn: document.getElementById('clearCartBtn'),
+    checkoutBtn: document.getElementById('checkoutBtn'),
+    addToCartBtn: document.getElementById('addToCartBtn'),
+    gameModal: document.getElementById('gameModal'),
+    gameTitle: document.getElementById('gameTitle'),
+    gameDescription: document.getElementById('gameDescription'),
+    gamePrice: document.getElementById('gamePrice'),
+    gameModalTitle: document.getElementById('gameModalTitle'),
+    customAlert: document.getElementById('customAlert'),
+    alertMessage: document.getElementById('alertMessage')
+};
 
-// Configurar modal de juego
-gameModal.addEventListener('show.bs.modal', function(event) {
-    const button = event.relatedTarget;
-    currentGameId = button.getAttribute('data-game-id');
-    const game = gamesData[currentGameId];
-    
-    gameTitle.textContent = game.title;
-    gameDescription.textContent = game.description;
-    gamePrice.textContent = `$${game.price.toFixed(2)}`;
+// Inicialización
+document.addEventListener('DOMContentLoaded', function() {
+    setupEventListeners();
 });
+
+// Configurar event listeners
+function setupEventListeners() {
+    elements.cartButton.addEventListener('click', toggleCart);
+    elements.closeCartBtn.addEventListener('click', toggleCart);
+    elements.cartOverlay.addEventListener('click', toggleCart);
+    elements.clearCartBtn.addEventListener('click', clearCart);
+    elements.checkoutBtn.addEventListener('click', checkout);
+    elements.addToCartBtn.addEventListener('click', addToCart);
+    
+    elements.gameModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        currentGameId = button.getAttribute('data-game-id');
+        if (!currentGameId) return;
+        
+        const game = gamesData[currentGameId];
+        elements.gameModalTitle.textContent = game.title;
+        elements.gameTitle.textContent = game.title;
+        elements.gameDescription.textContent = game.description;
+        elements.gamePrice.textContent = `$${game.price.toFixed(2)}`;
+    });
+}
+
+// Funciones del carrito
 function toggleCart() {
-    cartSidebar.classList.toggle('show');
-    cartOverlay.classList.toggle('show');
+    elements.cartSidebar.classList.toggle('show');
+    elements.cartOverlay.classList.toggle('show');
     updateCartUI();
 }
 
@@ -67,37 +97,31 @@ function addToCart() {
         });
     }
     
+    showAlert(`${game.title} ha sido añadido al carrito!`, 'success');
     updateCartUI();
-    alert(`${game.title} ha sido añadido al carrito!`);
     
-    // Cerrar el modal después de agregar al carrito
-    const modal = bootstrap.Modal.getInstance(gameModal);
+    const modal = bootstrap.Modal.getInstance(elements.gameModal);
     modal.hide();
-}
-
-function removeFromCart(gameId) {
-    cart = cart.filter(item => item.id !== gameId);
-    updateCartUI();
 }
 
 function updateCartUI() {
     // Actualizar contador
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCount.textContent = totalItems;
+    elements.cartCount.textContent = totalItems;
     
     // Actualizar lista de items
     if (cart.length === 0) {
-        cartItems.innerHTML = `
+        elements.cartItems.innerHTML = `
             <div class="text-center py-5">
                 <i class="fas fa-shopping-cart fa-3x mb-3" style="color: var(--secondary-color);"></i>
-                <p>Your cart is empty</p>
+                <p>Nada en el carrito</p>
             </div>
         `;
-        cartTotal.textContent = '$0.00';
+        elements.cartTotal.textContent = '$0.00';
         return;
     }
     
-    cartItems.innerHTML = cart.map(item => `
+    elements.cartItems.innerHTML = cart.map(item => `
         <div class="cart-item d-flex align-items-center mb-3 p-3 bg-dark rounded">
             <img src="${item.image}" class="cart-item-img me-3" alt="${item.title}">
             <div class="flex-grow-1">
@@ -112,38 +136,83 @@ function updateCartUI() {
             </div>
         </div>
     `).join('');
-    document.addEventListener('click', function(e) {
-    if (e.target.closest('.remove-item')) {
-        const gameId = parseInt(e.target.closest('.remove-item').getAttribute('data-id'));
-        removeFromCart(gameId);
-    }
-    });
+    
     // Actualizar total
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotal.textContent = `$${total.toFixed(2)}`;
+    elements.cartTotal.textContent = `$${total.toFixed(2)}`;
 }
 
-function clearCart() {
-    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
-        cart = [];
-        updateCartUI();
+// Event delegation para eliminar items
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.remove-item')) {
+        const gameId = e.target.closest('.remove-item').getAttribute('data-id');
+        removeFromCart(gameId);
     }
+});
+
+function removeFromCart(gameId) {
+    cart = cart.filter(item => item.id !== gameId);
+    showAlert('Producto eliminado del carrito', 'success');
+    updateCartUI();
+}
+
+// Variables para la confirmación
+let confirmCallback = null;
+const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+const confirmMessage = document.getElementById('confirmMessage');
+const confirmActionBtn = document.getElementById('confirmAction');
+
+// Configurar el evento una sola vez
+confirmActionBtn.addEventListener('click', function() {
+    if (confirmCallback) confirmCallback();
+    confirmModal.hide();
+});
+
+// Función showConfirm modificada
+function showConfirm(message, callback) {
+    confirmMessage.textContent = message;
+    confirmCallback = callback;
+    confirmModal.show();
+}
+function clearCart() {
+    if (cart.length === 0) {
+        showAlert('El carrito ya está vacío', 'info');
+        return;
+    }
+    
+    showConfirm('¿Estás seguro de que quieres vaciar el carrito?', function() {
+        cart = [];
+        showAlert('Carrito vaciado', 'success');
+        updateCartUI();
+    });
 }
 
 function checkout() {
     if (cart.length === 0) {
-        alert('Tu carrito está vacío');
+        showAlert('Tu carrito está vacío', 'error');
         return;
     }
     
-    alert('Orden confirmada! Gracias por tu compra.');
+    showAlert('Orden confirmada! Gracias por tu compra.', 'success');
     cart = [];
     updateCartUI();
     toggleCart();
 }
 
-// Hacer las funciones accesibles globalmente para los botones en el HTML
-window.removeFromCart = function(gameId) {
-    cart = cart.filter(item => item.id !== gameId);
-    updateCartUI();
-};
+function showAlert(message, type = 'success') {
+    elements.alertMessage.textContent = message;
+    elements.customAlert.firstElementChild.className = `alert d-flex align-items-center ${type === 'success' ? 'alert-success' : 'alert-danger'}`;
+    elements.customAlert.firstElementChild.style.backgroundColor = type === 'success' ? 'var(--primary-color)' : '#ff4444';
+    
+    elements.customAlert.style.display = 'block';
+    elements.customAlert.firstElementChild.classList.add('custom-notification');
+    elements.customAlert.firstElementChild.classList.remove('fade-out');
+    
+    setTimeout(() => {
+        elements.customAlert.firstElementChild.classList.add('fade-out');
+        setTimeout(() => elements.customAlert.style.display = 'none', 500);
+    }, 3000);
+}
+
+// Hacer funciones accesibles globalmente
+window.removeFromCart = removeFromCart;
